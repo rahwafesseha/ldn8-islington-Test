@@ -1,3 +1,15 @@
 .content {
   text-align: center;
 }
+
+.settings {
+  width: 45%;
+}
+
+.settings__select {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  justify-content: space-evenly;
+}
