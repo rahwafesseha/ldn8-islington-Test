@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./component/header/Header";
 import Home from "./component/home/Home";
-import Quiz from "./component/home/quiz/Quiz";
+import Quiz from "./component/quiz/Quiz";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
