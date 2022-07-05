@@ -22,7 +22,7 @@
 .choice {
   background-color: rgb(247, 245, 246);
   margin-top: 5px;
-  border: 2px solid black;
+  border: 1px solid black;
   padding: 10px;
   border-radius: 18px;
   font-size: 20px;
@@ -69,4 +69,7 @@
 .next-question{
   margin: 5% 10em;
  
+}
+.select{
+  background-color: green;
 }

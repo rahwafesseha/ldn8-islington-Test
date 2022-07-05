@@ -17,18 +17,16 @@ const Quiz = () => {
   }
   function restartQuiz() {
     setCurrentQuestion(0);
-
     setShowTotalScore(false);
   }
 
   function choiceClicked(choice) {
-    let newSelectedAnswers= [...selectedAnswers]
+    let newSelectedAnswers = [...selectedAnswers];
     newSelectedAnswers[currentQuestion] = choice;
     setSelectedAnswers(newSelectedAnswers);
     if (choice.isAnswer) {
       setCorrect(choice.id);
     }
-    console.log(selectedAnswers);
   }
 
   return (
@@ -53,6 +51,9 @@ const Quiz = () => {
       ) : (
         <div className="question-card">
           <h3>{questions[currentQuestion].text}</h3>
+          {questions[currentQuestion].image ? (
+            <img src={questions[currentQuestion].image} alt={""} />
+          ) : null}
           <ul className="choices">
             {questions[currentQuestion].choices.map((choice) => {
               return (
@@ -63,7 +64,7 @@ const Quiz = () => {
                   style={{
                     background:
                       selectedAnswers[currentQuestion]?.id === choice.id
-                        ? "blue"
+                        ? "green"
                         : "white",
                   }}
                 >

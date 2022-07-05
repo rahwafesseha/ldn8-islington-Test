@@ -3,16 +3,13 @@ import React from "react";
 function NextQuestionButton({
   currentQuestion,
   setCurrentQuestion,
-  setCorrect,
   questions,
   setShowTotalScore,
- disabled
+  disabled,
 }) {
   const nextQuestion = () => {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
-    //  setCorrect(); 
-     
     } else {
       setShowTotalScore(true);
     }
@@ -23,7 +20,6 @@ function NextQuestionButton({
       className="next-question"
       onClick={() => nextQuestion()}
       disabled={disabled}
-   
     >
       Next Question
     </button>
