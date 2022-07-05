@@ -8,7 +8,6 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showTotalScore, setShowTotalScore] = useState(false);
   const [Correct, setCorrect] = useState();
-  const [disable, setDisable] = useState(true);
 
   function calculatedScore() {
     let correctAnswers = selectedAnswers.filter((selectedAnswer, index) => {
@@ -20,16 +19,16 @@ const Quiz = () => {
     setCurrentQuestion(0);
 
     setShowTotalScore(false);
-    setCorrect();
   }
 
   function choiceClicked(choice) {
-    selectedAnswers[currentQuestion] = choice;
-    setSelectedAnswers(selectedAnswers);
+    let newSelectedAnswers= [...selectedAnswers]
+    newSelectedAnswers[currentQuestion] = choice;
+    setSelectedAnswers(newSelectedAnswers);
     if (choice.isAnswer) {
       setCorrect(choice.id);
-      setDisable(false);
     }
+    console.log(selectedAnswers);
   }
 
   return (
@@ -62,7 +61,10 @@ const Quiz = () => {
                   key={choice.id}
                   onClick={() => choiceClicked(choice)}
                   style={{
-                    background: Correct === choice.id ? "Green" : "white",
+                    background:
+                      selectedAnswers[currentQuestion]?.id === choice.id
+                        ? "blue"
+                        : "white",
                   }}
                 >
                   {choice.answer}
@@ -77,8 +79,7 @@ const Quiz = () => {
             setCorrect={setCorrect}
             questions={questions}
             setShowTotalScore={setShowTotalScore}
-            disable={disable}
-            setDisable={setDisable}
+            disabled={selectedAnswers[currentQuestion] === undefined}
           />
         </div>
       )}

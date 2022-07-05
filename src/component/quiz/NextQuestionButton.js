@@ -6,14 +6,13 @@ function NextQuestionButton({
   setCorrect,
   questions,
   setShowTotalScore,
-  disable,
-  setDisable,
+ disabled
 }) {
   const nextQuestion = () => {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
-     setCorrect(); 
-      setDisable(true);
+    //  setCorrect(); 
+     
     } else {
       setShowTotalScore(true);
     }
@@ -23,7 +22,8 @@ function NextQuestionButton({
     <button
       className="next-question"
       onClick={() => nextQuestion()}
-      disabled={disable}
+      disabled={disabled}
+   
     >
       Next Question
     </button>
