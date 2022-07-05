@@ -4,12 +4,22 @@ function NextQuestionButton({
   currentQuestion,
   setCurrentQuestion,
   setCorrect,
+  questions,
+  setShowTotalScore,
 }) {
+  const nextQuestion = () => {
+    if (currentQuestion + 1 < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      setCorrect();
+    } else {
+      setShowTotalScore(true);
+    }
+  };
+
   return (
     <button
       onClick={() => {
-        setCurrentQuestion(currentQuestion + 1);
-        setCorrect();
+        nextQuestion();
       }}
       className="next-question"
     >
