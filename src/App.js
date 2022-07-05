@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home name={name} setName={setName}/>} />
+        <Route path="/" element={<Home name={name} setName={setName} />} />
         <Route path="/quiz" element={<Quiz />} />
       </Routes>
     </BrowserRouter>
