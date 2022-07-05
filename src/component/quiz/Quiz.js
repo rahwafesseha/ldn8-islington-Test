@@ -8,6 +8,7 @@ const Quiz = () => {
   const [showScore, setShowScore] = useState(0);
   const [showTotalScore, setShowTotalScore] = useState(false);
   const [Correct, setCorrect] = useState();
+  const [disable, setDisable] = useState(true);
 
   function restartQuiz() {
     setCurrentQuestion(0);
@@ -20,6 +21,7 @@ const Quiz = () => {
     if (isAnswer) {
       setShowScore(showScore + 1);
       setCorrect(id);
+      setDisable(false);
     }
   }
 
@@ -34,7 +36,7 @@ const Quiz = () => {
 
       {showTotalScore ? (
         <div className="total-score">
-          <h1 style={{ color: "tomato", textAlign:"center"}}>
+          <h1 style={{ color: "tomato", textAlign: "center" }}>
             Quiz Ended! You Scored {showScore} Out Of {questions.length}
           </h1>
 
@@ -67,6 +69,8 @@ const Quiz = () => {
             setCorrect={setCorrect}
             questions={questions}
             setShowTotalScore={setShowTotalScore}
+            disable={disable}
+            setDisable={setDisable}
           />
         </div>
       )}
