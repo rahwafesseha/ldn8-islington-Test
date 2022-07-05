@@ -12,7 +12,7 @@ function NextQuestionButton({
   const nextQuestion = () => {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
-      setCorrect();
+     setCorrect(); 
       setDisable(true);
     } else {
       setShowTotalScore(true);

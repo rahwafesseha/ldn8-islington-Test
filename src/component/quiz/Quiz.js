@@ -4,23 +4,30 @@ import "./Quiz.css";
 import NextQuestionButton from "./NextQuestionButton";
 
 const Quiz = () => {
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showScore, setShowScore] = useState(0);
   const [showTotalScore, setShowTotalScore] = useState(false);
   const [Correct, setCorrect] = useState();
   const [disable, setDisable] = useState(true);
 
+  function calculatedScore() {
+    let correctAnswers = selectedAnswers.filter((selectedAnswer, index) => {
+      return selectedAnswer.isAnswer;
+    });
+    return correctAnswers.length;
+  }
   function restartQuiz() {
     setCurrentQuestion(0);
-    setShowScore(0);
+
     setShowTotalScore(false);
     setCorrect();
   }
 
-  function choiceClicked({ id, isAnswer }) {
-    if (isAnswer) {
-      setShowScore(showScore + 1);
-      setCorrect(id);
+  function choiceClicked(choice) {
+    selectedAnswers[currentQuestion] = choice;
+    setSelectedAnswers(selectedAnswers);
+    if (choice.isAnswer) {
+      setCorrect(choice.id);
       setDisable(false);
     }
   }
@@ -30,14 +37,14 @@ const Quiz = () => {
       <h2 className="question-number">
         Question: {currentQuestion + 1}/{questions.length}
         <span className="score" style={{ color: "tomato" }}>
-          Score: {showScore}
+          Score: {calculatedScore()}
         </span>
       </h2>
 
       {showTotalScore ? (
         <div className="total-score">
           <h1 style={{ color: "tomato", textAlign: "center" }}>
-            Quiz Ended! You Scored {showScore} Out Of {questions.length}
+            Quiz Ended! You Scored {calculatedScore()} Out Of {questions.length}
           </h1>
 
           <button onClick={() => restartQuiz()} className="restart-button">
@@ -63,6 +70,7 @@ const Quiz = () => {
               );
             })}
           </ul>
+
           <NextQuestionButton
             currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion}
