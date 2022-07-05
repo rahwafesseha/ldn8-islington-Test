@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import questions from "../data.json";
 import "./Quiz.css";
 
+import NextQuestionButton from "./NextQuestionButton";
+
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(0);
@@ -19,13 +21,6 @@ const Quiz = () => {
       setShowScore(showScore + 1);
       setCorrect(id);
     }
-
-    if (currentQuestion + 1 < questions.length) {
-      setCorrect("");
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setShowTotalScore(true);
-    }
   }
 
   return (
@@ -38,7 +33,7 @@ const Quiz = () => {
       </h2>
       {showTotalScore ? (
         <div className="total-score">
-          <h1 className= "quiz-end" style={{ color: "tomato" }}>
+          <h1 style={{ color: "tomato" }}>
             Quiz Ended! You Scored {showScore} Out Of {questions.length}
           </h1>
 
@@ -65,6 +60,11 @@ const Quiz = () => {
               );
             })}
           </ul>
+          <NextQuestionButton
+            currentQuestion={currentQuestion}
+            setCurrentQuestion={setCurrentQuestion}
+            setCorrect={setCorrect}
+          />
         </div>
       )}
     </div>
