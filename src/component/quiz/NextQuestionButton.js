@@ -17,12 +17,7 @@ function NextQuestionButton({
   };
 
   return (
-    <button
-      onClick={() => {
-        nextQuestion();
-      }}
-      className="next-question"
-    >
+    <button className="next-question" onClick={() => nextQuestion()}>
       Next Question
     </button>
   );
