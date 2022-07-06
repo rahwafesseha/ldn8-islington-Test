@@ -1,17 +1,33 @@
-import React, { useState } from "react";
-import questions from "../data.json";
+import React, { useEffect, useState } from "react";
+// import questions from "../data.json";
 import "./Quiz.css";
 import NextQuestionButton from "./NextQuestionButton";
+import axios from "axios";
 
 const Quiz = () => {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showTotalScore, setShowTotalScore] = useState(false);
   const [Correct, setCorrect] = useState();
+  const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
+
+  const loadData = () => {
+    axios.get("https://ldn8-islington.herokuapp.com/questions").then((res) => {
+      setQuestions(res.data);
+    });
+    axios.get("https://ldn8-islington.herokuapp.com/answers").then((res) => {
+      setAnswers(res.data);
+    });
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   function calculatedScore() {
     let correctAnswers = selectedAnswers.filter((selectedAnswer, index) => {
-      return selectedAnswer.isAnswer;
+      return selectedAnswer.is_correct;
     });
     return correctAnswers.length;
   }
@@ -24,7 +40,7 @@ const Quiz = () => {
     let newSelectedAnswers = [...selectedAnswers];
     newSelectedAnswers[currentQuestion] = choice;
     setSelectedAnswers(newSelectedAnswers);
-    if (choice.isAnswer) {
+    if (choice.is_correct) {
       setCorrect(choice.id);
     }
   }
@@ -50,30 +66,33 @@ const Quiz = () => {
         </div>
       ) : (
         <div className="question-card">
-          <h3>{questions[currentQuestion].text}</h3>
-          {questions[currentQuestion].image ? (
+          {questions.length > 0 && (
+            <h3>{questions[currentQuestion].question}</h3>
+          )}
+          {questions.length > 0 && questions[currentQuestion].image ? (
             <img src={questions[currentQuestion].image} alt={""} />
           ) : null}
-          <ul className="choices">
-            {questions[currentQuestion].choices.map((choice) => {
-              return (
-                <li
-                  className="choice"
-                  key={choice.id}
-                  onClick={() => choiceClicked(choice)}
-                  style={{
-                    background:
-                      selectedAnswers[currentQuestion]?.id === choice.id
-                        ? "green"
-                        : "white",
-                  }}
-                >
-                  {choice.answer}
-                </li>
-              );
-            })}
-          </ul>
-
+          {questions.length > 0 && (
+            <ul className="choices">
+              {answers.filter(answer => answer.question_id === questions[currentQuestion].id).map((choice) => {
+                return (
+                  <li
+                    className="choice"
+                    key={choice.id}
+                    onClick={() => choiceClicked(choice)}
+                    style={{
+                      background:
+                        selectedAnswers[currentQuestion]?.id === choice.id
+                          ? "skyblue"
+                          : "white",
+                    }}
+                  >
+                    {choice.answer}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
           <NextQuestionButton
             currentQuestion={currentQuestion}
             setCurrentQuestion={setCurrentQuestion}
