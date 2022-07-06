@@ -45,5 +45,50 @@
       { "id": 2, "answer": "note", "isAnswer": false },
       { "id": 3, "answer": "description", "isAnswer": false }
     ]
+  },
+  {
+    "text": "He is very good _____ making stories?",
+    "choices": [
+      { "id": 0, "answer": "in", "isAnswer": false },
+      { "id": 1, "answer": "about", "isAnswer": false },
+      { "id": 2, "answer": "at", "isAnswer": true },
+      { "id": 3, "answer": "for", "isAnswer": false }
+    ]
+  },
+  {
+    "text": " I do my work ______ carefully to make mistakes?",
+    "choices": [
+      { "id": 0, "answer": "so", "isAnswer": false },
+      { "id": 1, "answer": "very", "isAnswer": false },
+      { "id": 2, "answer": "too", "isAnswer": true },
+      { "id": 3, "answer": "more", "isAnswer": false }
+    ]
+  },
+  {
+    "text": "The Chairman is ill and we will have to ______ the meeting for a few days?",
+    "choices": [
+      { "id": 0, "answer": "put on", "isAnswer": false },
+      { "id": 1, "answer": "put of", "isAnswer": false },
+      { "id": 2, "answer": "put away", "isAnswer": false },
+      { "id": 3, "answer": "put off", "isAnswer": true }
+    ]
+  },
+  {
+    "text": "The cat and the dog have a _______ enemy in the rat?",
+    "choices": [
+      { "id": 0, "answer": "same", "isAnswer": false },
+      { "id": 1, "answer": "common", "isAnswer": true },
+      { "id": 2, "answer": "mutual", "isAnswer": false },
+      { "id": 3, "answer": "similar", "isAnswer": false }
+    ]
+  },
+  {
+    "text": "He told me that he ________ watching the movie?",
+    "choices": [
+      { "id": 0, "answer": "is finished", "isAnswer": false },
+      { "id": 1, "answer": "has finished", "isAnswer": false },
+      { "id": 2, "answer": "had finished", "isAnswer": true },
+      { "id": 3, "answer": "not finished", "isAnswer": false }
+    ]
   }
 ]

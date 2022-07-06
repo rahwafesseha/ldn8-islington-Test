@@ -4,13 +4,17 @@ import "./Quiz.css";
 import NextQuestionButton from "./NextQuestionButton";
 import axios from "axios";
 
-const Quiz = () => {
+const Quiz = ({name}) => {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showTotalScore, setShowTotalScore] = useState(false);
-  const [Correct, setCorrect] = useState();
+  const [correct, setCorrect] = useState();
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
+
+  // Handling netlify error where _correct_ variable never used
+  console.log(correct);
+ 
 
   const loadData = () => {
     axios.get("https://ldn8-islington.herokuapp.com/questions").then((res) => {
@@ -47,6 +51,7 @@ const Quiz = () => {
 
   return (
     <div>
+      <h3>Hello {name} </h3>
       <h2 className="question-number">
         Question: {currentQuestion + 1}/{questions.length}
         <span className="score" style={{ color: "tomato" }}>
@@ -74,23 +79,28 @@ const Quiz = () => {
           ) : null}
           {questions.length > 0 && (
             <ul className="choices">
-              {answers.filter(answer => answer.question_id === questions[currentQuestion].id).map((choice) => {
-                return (
-                  <li
-                    className="choice"
-                    key={choice.id}
-                    onClick={() => choiceClicked(choice)}
-                    style={{
-                      background:
-                        selectedAnswers[currentQuestion]?.id === choice.id
-                          ? "skyblue"
-                          : "white",
-                    }}
-                  >
-                    {choice.answer}
-                  </li>
-                );
-              })}
+              {answers
+                .filter(
+                  (answer) =>
+                    answer.question_id === questions[currentQuestion].id
+                )
+                .map((choice) => {
+                  return (
+                    <li
+                      className="choice"
+                      key={choice.id}
+                      onClick={() => choiceClicked(choice)}
+                      style={{
+                        background:
+                          selectedAnswers[currentQuestion]?.id === choice.id
+                            ? "skyblue"
+                            : "white",
+                      }}
+                    >
+                      {choice.answer}
+                    </li>
+                  );
+                })}
             </ul>
           )}
           <NextQuestionButton
