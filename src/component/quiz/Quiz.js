@@ -8,9 +8,12 @@ const Quiz = () => {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showTotalScore, setShowTotalScore] = useState(false);
-  const [Correct, setCorrect] = useState();
+  const [correct, setCorrect] = useState();
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
+
+  // Handling netlify error where _correct_ variable never used
+  console.log(correct);
 
   const loadData = () => {
     axios.get("https://ldn8-islington.herokuapp.com/questions").then((res) => {
