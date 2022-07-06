@@ -28,7 +28,7 @@
     ]
   },
   {
-    "text": "What does this flag?",
+    "text": "What is this City?",
     "image": "/images/city.jpeg",
     "choices": [
       { "id": 0, "answer": "Manchester", "isAnswer": false },
