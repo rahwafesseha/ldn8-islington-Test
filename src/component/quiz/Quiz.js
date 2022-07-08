@@ -4,7 +4,7 @@ import "./Quiz.css";
 import NextQuestionButton from "./NextQuestionButton";
 import axios from "axios";
 
-const Quiz = ({name}) => {
+const Quiz = ({name, difficulty}) => {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showTotalScore, setShowTotalScore] = useState(false);
@@ -17,7 +17,7 @@ const Quiz = ({name}) => {
  
 
   const loadData = () => {
-    axios.get("https://ldn8-islington.herokuapp.com/questions").then((res) => {
+    axios.get(`https://ldn8-islington.herokuapp.com/questions/difficulty/${difficulty}`).then((res) => {
       setQuestions(res.data);
     });
     axios.get("https://ldn8-islington.herokuapp.com/answers").then((res) => {
@@ -50,8 +50,9 @@ const Quiz = ({name}) => {
   }
 
   return (
-    <div>
-      <h3>Hello {name} </h3>
+    <div style={{ margin: "40px" }}>
+      <h1>Hello {name} </h1>
+      <h3>Difficulty: {questions.length > 0 && questions[0].diff_type}</h3>
       <h2 className="question-number">
         Question: {currentQuestion + 1}/{questions.length}
         <span className="score" style={{ color: "tomato" }}>
@@ -66,7 +67,7 @@ const Quiz = ({name}) => {
           </h1>
 
           <button onClick={() => restartQuiz()} className="restart-button">
-            Restart the game
+            Restart the quiz
           </button>
         </div>
       ) : (
