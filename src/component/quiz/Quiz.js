@@ -27,7 +27,7 @@ const Quiz = ({name, difficulty}) => {
 
   useEffect(() => {
     loadData();
-  }, []);
+  });
 
   function calculatedScore() {
     let correctAnswers = selectedAnswers.filter((selectedAnswer, index) => {
