@@ -1,30 +1,41 @@
  [
-    {
-      "text": "Her thinking leans ____ democracy?",
-      "choices": [
-        { "id": 0, "answer": "with", "isAnswer": false },
-        { "id": 1, "answer": "for", "isAnswer": false },
-        { "id": 2, "answer": "in", "isAnswer": false },
-        { "id": 3, "answer": "towards", "isAnswer": true }
-      ]
-    },
-    {
-      "text": "I ____ never seen such a picture before?",
-      "choices": [
-        { "id": 0, "answer": "has", "isAnswer": false },
-        { "id": 1, "answer": "have", "isAnswer": true },
-        { "id": 2, "answer": "was", "isAnswer": false },
-        { "id": 3, "answer": "were", "isAnswer": false }
-      ]
-    },
-    {
-      "text": "What does UK stand for?",
-      "choices": [
-        { "id": 0, "answer": "Ukrainian Kingdom", "isAnswer": false },
-        { "id": 1, "answer": "United Kingdom", "isAnswer": true },
-        { "id": 2, "answer": "United King", "isAnswer": false },
-        { "id": 3, "answer": "Ugandan Kingdom", "isAnswer": false }
-      ]
-    }
-    
-  ]
+  {
+    "id": 1,
+    "title": "Learn English Like a Baby",
+    "imgurl": "https://genlish.com/wp-content/uploads/2017/04/English1-1024x690.jpg",
+    "intro": "Do you remember learning your native language? Probably not. That is because as children we pick up language automatically. This video explores how babies learn to speak a language, then lists three ways second language learners can imitate their success.",
+    "summary": "As the video shows, babies focus more on the stress and the feeling of the words first. This allows them to express and communicate in some way before even learning the proper words",
+    "content": "this is the full lesson content 1",
+    "url": "https://www.youtube.com/watch?v=QY1Hcm-RtG4",
+    "rating": 23
+  },
+  {
+    "id": 2,
+    "title": "Auxiliary and Phrasal Verbs",
+    "imgurl": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2020/10/ways-to-learn-english-fast.jpg",
+    "intro": "The instructor focuses a lot on the different forms of these verbs. She also talks about when to use contractions and when the verbs are absent in the sentence.",
+    "summary": "The video is extremely useful for beginners as each section is filled with examples where the important words are highlighted in red. While watching the video, be sure to pause when the examples are shown. Notice how the rules are applied and make sure you understand them.",
+    "content": "this is the full lesson content 2",
+    "url": "https://www.youtube.com/watch?v=A2ncygNMaFo",
+    "rating": 230
+  },
+  {
+    "id": 3,
+    "title": "English Pronunciation",
+    "imgurl": "https://fluencycorp.com/wp-content/uploads/2019/01/hardest-part-learning-english.jpg",
+    "intro": "The connection between letters and sounds in English always seems mysterious to beginner English learners. It may seem like the rules of pronunciation are messy, but there are ways to determine what a word sounds like.",
+    "summary": "In this lesson, you will learn about a technique called backchaining that is used by professional actors and language teachers. With backchaining, you pronounce the last sound of a word first and then keep moving forward.",
+    "content": "this is the full lesson content 3",
+    "url": "https://www.youtube.com/watch?v=sMWLytZAzGg",
+    "rating": 230
+  },
+  {
+    "id": 4,
+    "title": "API test",
+    "imgurl": "https://learnenglishteens.britishcouncil.org/sites/teens/files/styles/article/public/istock_000017356076small.jpg?itok=renqm4vC",
+    "intro": "She had found a book about cats and was happy",
+    "summary": "Look at this, said Saffron. She moved closer to Nell to show something on her tablet. You like cats, right?",
+    "content": "OK, kittens.Saffron tapped at her screen. So look - kittens. Hundreds of them. Thousands of them! More than you could ever look at.",
+    "url": "http://www.bbc.co.uk/programmes/p07ttwfq/player",
+    "rating": 12
+  }]
