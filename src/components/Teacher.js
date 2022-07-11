@@ -10,10 +10,10 @@ import { send } from "emailjs-com";
 function Teacher() {
   const [files, setFiles] = useState([
     // title, imgurl, intro, summary, content, url, rating
-      // { id: 1, title: "myFile-1.pdf", intro: "present tense" },
-      // { id: 2, title: "myFile-2.pdf", intro: "past tense" },
-      // { id: 3, title: "myFile-3.pdf", intro: "future tense" },
-      // { id: 4, title: "myFile-4.pdf", intro: "prepositional sentence" },
+      { id: 1, title: "myFile-1.pdf", intro: "present tense" },
+      { id: 2, title: "myFile-2.pdf", intro: "past tense" },
+      { id: 3, title: "myFile-3.pdf", intro: "future tense" },
+      { id: 4, title: "myFile-4.pdf", intro: "prepositional sentence" },
   ]);
   const [visible, setVisible] = useState(false);
   const [values, setValues] = useState({
