@@ -1,0 +1,23 @@
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(248, 229, 209);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+ 
+  display: flex;
+  gap:8px;
+}
+.facebook{
+  margin-left: 50%;
+  font-size: 20px;
+  color:rgb(96, 3, 15);
+ 
+}
+.twitter{
+  font-size: 20px;
+   color:rgb(96, 3, 15);
+ 
+}
